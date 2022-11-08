@@ -1,18 +1,29 @@
 import './App.css'
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from '@mui/material'
 import Buscador from './Components/Buscador'
 
 function App() {
-  const [inputBusqueda, setInputBusqueda] = useState('')
+
   const [datosUsuario, setDatosUsuario] = useState({})
 
-  
-  const BuscarUsuario = ()=>{
-    
+  useEffect(() => {
+    BusquedaAPI('octocatrrr')
+  }, [])
+
+
+  const BusquedaAPI = (query) => {
+    fetch(`https://api.github.com/users/${query}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'NotFound') {
+          BusquedaAPI('octocat')
+        }
+        return setDatosUsuario(data)
+      })
+
   }
-
-
+  console.log('estado datos', datosUsuario)
   return (
     <Container sx={{
       background: 'whitesmoke',
@@ -24,9 +35,8 @@ function App() {
       flexDirection: 'column',
       alignItems: 'center'
     }}>
-      <Buscador inputBusqueda={inputBusqueda} setInputBusqueda={setInputBusqueda} BuscarUsuario={BuscarUsuario}/>
+      <Buscador BusquedaAPI={BusquedaAPI} />
 
-      {datosUsuario}
     </Container>
   )
 }
