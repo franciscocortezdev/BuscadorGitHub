@@ -16,13 +16,15 @@ function App() {
     fetch(`https://api.github.com/users/${query}`)
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'NotFound') {
+        if (data.message === 'Not Found') {
           BusquedaAPI('octocat')
-        }
-        return setDatosUsuario(data)
-      })
+        } else {
 
+          return setDatosUsuario(data)
+        }
+      })
   }
+
   console.log('estado datos', datosUsuario)
   return (
     <Container sx={{

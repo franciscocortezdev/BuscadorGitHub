@@ -5,16 +5,22 @@ import SearchIcon from '@mui/icons-material/Search';
 export default function Buscador({ BusquedaAPI }) {
   const [inputBusqueda, setInputBusqueda] = useState('')
 
-  const realizarbusqueda = () => {
+  const realizarbusqueda = (e) => {
+    e.preventDefault()
     BusquedaAPI(inputBusqueda)
     setInputBusqueda('')
   }
 
   return (
-    <Stack direction='row' sx={{
-      marginTop: '30px',
-      width: '80%'
-    }}>
+
+    <Stack
+      direction='row'
+      component="form"
+      onSubmit={realizarbusqueda}
+      sx={{
+        marginTop: '30px',
+        width: '80%'
+      }}>
 
       <TextField
         value={inputBusqueda}
@@ -33,6 +39,8 @@ export default function Buscador({ BusquedaAPI }) {
         autoComplete='off'
         size="small"
       />
+
     </Stack>
+
   )
 }
