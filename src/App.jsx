@@ -1,8 +1,17 @@
 import './App.css'
+import React, {useState} from 'react'
 import { Container } from '@mui/material'
 import Buscador from './Components/Buscador'
 
 function App() {
+  const [inputBusqueda, setInputBusqueda] = useState('')
+  const [datosUsuario, setDatosUsuario] = useState({})
+
+  
+  const BuscarUsuario = ()=>{
+    
+  }
+
 
   return (
     <Container sx={{
@@ -15,7 +24,9 @@ function App() {
       flexDirection: 'column',
       alignItems: 'center'
     }}>
-      <Buscador/>
+      <Buscador inputBusqueda={inputBusqueda} setInputBusqueda={setInputBusqueda} BuscarUsuario={BuscarUsuario}/>
+
+      {datosUsuario}
     </Container>
   )
 }
