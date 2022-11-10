@@ -2,7 +2,7 @@ import './App.css'
 import React, { useState, useEffect } from 'react'
 import { Container } from '@mui/material'
 import Buscador from './Components/Buscador'
-import InfoUsuario from './Components/InfoUsuario'
+import CardUsuario from './Components/CardUsuario'
 
 function App() {
 
@@ -28,18 +28,20 @@ function App() {
 
 
   return (
-    <Container sx={{
-      background: 'whitesmoke',
-      width: '80vw',
-      height: '500px',
-      borderRadius: '16px',
-      marginTop: '40px',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
+    <Container
+      sx={{
+        background: 'whitesmoke',
+        width: '80vw',
+        height: '500px',
+        borderRadius: '16px',
+        marginTop: '40px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '30px'
+      }}>
       <Buscador BusquedaAPI={BusquedaAPI} />
-      <InfoUsuario DatosUsuario={datosUsuario} />
+      <CardUsuario DatosUsuario={datosUsuario} />
 
     </Container>
   )

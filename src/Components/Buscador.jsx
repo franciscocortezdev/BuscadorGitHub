@@ -19,7 +19,7 @@ export default function Buscador({ BusquedaAPI }) {
       onSubmit={realizarbusqueda}
       sx={{
         marginTop: '30px',
-        width: '80%'
+        width: '85%'
       }}>
 
       <TextField
