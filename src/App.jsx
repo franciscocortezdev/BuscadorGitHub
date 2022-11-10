@@ -2,13 +2,14 @@ import './App.css'
 import React, { useState, useEffect } from 'react'
 import { Container } from '@mui/material'
 import Buscador from './Components/Buscador'
+import InfoUsuario from './Components/InfoUsuario'
 
 function App() {
 
   const [datosUsuario, setDatosUsuario] = useState({})
 
   useEffect(() => {
-    BusquedaAPI('octocatrrr')
+    BusquedaAPI('octocat')
   }, [])
 
 
@@ -25,7 +26,7 @@ function App() {
       })
   }
 
-  console.log('estado datos', datosUsuario)
+
   return (
     <Container sx={{
       background: 'whitesmoke',
@@ -38,6 +39,7 @@ function App() {
       alignItems: 'center'
     }}>
       <Buscador BusquedaAPI={BusquedaAPI} />
+      <InfoUsuario DatosUsuario={datosUsuario} />
 
     </Container>
   )
