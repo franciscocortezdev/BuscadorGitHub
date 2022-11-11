@@ -7,7 +7,6 @@ export default function CardUsuario({ DatosUsuario }) {
   const { name, avatar_url } = DatosUsuario
 
 
-  console.log(DatosUsuario)
   return (
     <>
       <Grid

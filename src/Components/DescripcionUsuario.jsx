@@ -1,5 +1,6 @@
 import { Stack, Typography } from '@mui/material'
 import React from 'react'
+import InformacionLocalizacion from './InformacionLocalizacion'
 import InformacionPaper from './InformacionPaper'
 
 export default function DescripcionUsuario({ DatosUsuario }) {
@@ -20,7 +21,7 @@ export default function DescripcionUsuario({ DatosUsuario }) {
 
       </Stack>
       <InformacionPaper DatosUsuario={DatosUsuario} />
-      {/*<InformacionLocalizacion DatosUsuario={DatosUsuario} /> */}
+      <InformacionLocalizacion DatosUsuario={DatosUsuario} />
     </>
   )
 }
