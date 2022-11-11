@@ -10,8 +10,8 @@ export default function DescripcionUsuario({ DatosUsuario }) {
 
   return (
     <>
-      <Stack>
-        <Typography>
+      <Stack >
+        <Typography variant='body1'>
           {
             bio !== null
               ? bio

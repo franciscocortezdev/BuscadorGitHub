@@ -13,7 +13,7 @@ export default function EncabezadoUsuario({ DatosUsuario }) {
         alignItems="center"
       >
         <Typography variant='h4' >{name}</Typography>
-        <Typography variant='subtitle2'>{created_at.substring(0, 10)}</Typography>
+        <Typography variant='subtitle2'>{created_at}</Typography>
 
       </Stack>
       <Typography variant='h6'>@{login}</Typography>

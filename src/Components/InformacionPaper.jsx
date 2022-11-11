@@ -5,13 +5,32 @@ export default function InformacionPaper({ DatosUsuario }) {
   const { public_repos, followers, following } = DatosUsuario
 
   return (
-    <Paper elevation={3}>
-      <Stack>
-        <Typography>Repositorios: {public_repos}</Typography>
-        <Typography>Seguidores: {followers}</Typography>
-        <Typography>Siguiendo: {following}</Typography>
+    <Paper elevation={3} >
+      <Stack
+        direction='row'
+        spacing={3}
+        justifyContent='space-evenly'
+        margin={3}
+      >
+        <Stack alignItems={'center'}>
+          <Typography variant='h6'>Repositorios</Typography>
+          <Typography variant='h5'>{public_repos}</Typography>
+
+        </Stack>
+
+        <Stack alignItems={'center'}>
+          <Typography variant='h6'>Seguidores</Typography>
+          <Typography variant='h5'>{followers}</Typography>
+
+        </Stack>
+
+        <Stack alignItems={'center'}>
+          <Typography variant='h6'>Siguiendo</Typography>
+          <Typography variant='h5'>{following}</Typography>
+
+        </Stack>
 
       </Stack>
-    </Paper>
+    </Paper >
   )
 }
