@@ -1,4 +1,4 @@
-import { CardMedia, Grid } from '@mui/material'
+import { CardMedia, Container, Grid, Stack } from '@mui/material'
 import React from 'react'
 import DescripcionUsuario from './DescripcionUsuario'
 import EncabezadoUsuario from './EncabezadoUsuario'
@@ -18,12 +18,19 @@ export default function CardUsuario({ DatosUsuario }) {
             component='img'
             alt={name}
             image={avatar_url}
-            sx={{ borderRadius: '50%' }}
+            sx={{ borderRadius: '50%', width: '100%' }}
           />
         </Grid>
         <Grid item xs={9} >
-          <EncabezadoUsuario DatosUsuario={DatosUsuario} />
-          <DescripcionUsuario DatosUsuario={DatosUsuario} />
+          <Stack
+            direction='column'
+            spacing={1}
+            sx={{ margin: '30px' }}
+          >
+
+            <EncabezadoUsuario DatosUsuario={DatosUsuario} />
+            <DescripcionUsuario DatosUsuario={DatosUsuario} />
+          </Stack>
         </Grid>
 
       </Grid>

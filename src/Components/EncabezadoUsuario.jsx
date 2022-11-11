@@ -6,17 +6,18 @@ export default function EncabezadoUsuario({ DatosUsuario }) {
 
 
   return (
-    <>
+    <Stack>
       <Stack
         direction="row"
         justifyContent="space-between"
+        alignItems="center"
       >
-        <Typography>{name}</Typography>
-        <Typography>{created_at}</Typography>
+        <Typography variant='h4' >{name}</Typography>
+        <Typography variant='subtitle2'>{created_at.substring(0, 10)}</Typography>
 
       </Stack>
-      <Typography>@{login}</Typography>
+      <Typography variant='h6'>@{login}</Typography>
 
-    </>
+    </Stack>
   )
 }
