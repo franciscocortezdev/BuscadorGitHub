@@ -1,5 +1,6 @@
 import { Stack, Typography } from '@mui/material'
 import React from 'react'
+import InformacionPaper from './InformacionPaper'
 
 export default function DescripcionUsuario({ DatosUsuario }) {
   const { bio } = DatosUsuario
@@ -18,8 +19,8 @@ export default function DescripcionUsuario({ DatosUsuario }) {
         </Typography>
 
       </Stack>
-      {/* <InformacionPaper/>
-    <InformacionLocalizacion/> */}
+      <InformacionPaper DatosUsuario={DatosUsuario} />
+      {/*<InformacionLocalizacion DatosUsuario={DatosUsuario} /> */}
     </>
   )
 }
