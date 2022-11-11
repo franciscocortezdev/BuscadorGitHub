@@ -1,5 +1,6 @@
 import { CardMedia, Grid } from '@mui/material'
 import React from 'react'
+import DescripcionUsuario from './DescripcionUsuario'
 import EncabezadoUsuario from './EncabezadoUsuario'
 
 export default function CardUsuario({ DatosUsuario }) {
@@ -23,9 +24,7 @@ export default function CardUsuario({ DatosUsuario }) {
         </Grid>
         <Grid item xs={9}>
           <EncabezadoUsuario DatosUsuario={DatosUsuario} />
-          <>
-
-          </>
+          <DescripcionUsuario DatosUsuario={DatosUsuario} />
         </Grid>
 
       </Grid>
