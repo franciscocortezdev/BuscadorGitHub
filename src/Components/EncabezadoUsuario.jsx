@@ -7,12 +7,15 @@ export default function EncabezadoUsuario({ DatosUsuario }) {
 
   return (
     <>
-      <Stack>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+      >
         <Typography>{name}</Typography>
         <Typography>{created_at}</Typography>
 
       </Stack>
-      <Typography>{login}</Typography>
+      <Typography>@{login}</Typography>
 
     </>
   )

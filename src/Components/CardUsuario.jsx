@@ -22,7 +22,7 @@ export default function CardUsuario({ DatosUsuario }) {
             sx={{ borderRadius: '50%' }}
           />
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={9} >
           <EncabezadoUsuario DatosUsuario={DatosUsuario} />
           <DescripcionUsuario DatosUsuario={DatosUsuario} />
         </Grid>
