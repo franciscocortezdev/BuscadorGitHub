@@ -25,7 +25,7 @@ export default function CardUsuario({ DatosUsuario }) {
           <Stack
             direction='column'
             spacing={1}
-            sx={{ margin: '30px' }}
+            sx={{ marginLeft: '30px', marginRight: '30px' }}
           >
 
             <EncabezadoUsuario DatosUsuario={DatosUsuario} />

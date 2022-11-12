@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography } from '@mui/material'
+import { Grid, Stack, Typography, Link } from '@mui/material'
 import React from 'react'
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -13,27 +13,35 @@ export default function InformacionLocalizacion({ DatosUsuario }) {
   return (
     <Grid
       container
+      spacing={3}
     >
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction={'row'} spacing={2}>
           <LocationOnIcon />
           <Typography>{location ? location : 'No disponible'}</Typography>
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction={'row'} spacing={2}>
           <TwitterIcon />
           <Typography>{twitter_username ? '@' + twitter_username : 'No disponible'}</Typography>
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction={'row'} spacing={2}>
           <LanguageIcon />
-          <Typography>{blog ? blog : 'No disponible'}</Typography>
+          {
+            blog
+              ? <Link href={blog} target='_blank' underline="hover">
+                <Typography>{blog}</Typography>
+              </Link>
+              : <Typography>{'No disponible'}</Typography>
+          }
+
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction={'row'} spacing={2}>
           <BusinessIcon />
           <Typography>{company ? company : 'No disponible'}</Typography>
         </Stack>
