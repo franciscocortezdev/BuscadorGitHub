@@ -3,10 +3,15 @@ import React, { useState, useEffect } from 'react'
 import { Container } from '@mui/material'
 import Buscador from './Components/Buscador'
 import CardUsuario from './Components/CardUsuario'
+import Snackbar from '@mui/material/Snackbar';
+
+import Alert from '@mui/material/Alert';
+
 
 function App() {
-
   const [datosUsuario, setDatosUsuario] = useState({})
+  const [open, setOpen] = useState(false)
+
 
   useEffect(() => {
     BusquedaAPI('octocat')
@@ -18,6 +23,7 @@ function App() {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'Not Found') {
+
           BusquedaAPI('octocat')
         } else {
 
@@ -25,6 +31,19 @@ function App() {
         }
       })
   }
+
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
 
   return (
@@ -40,6 +59,14 @@ function App() {
         alignItems: 'center',
         gap: '30px'
       }}>
+      <button onClick={handleClick}>Abrir modal</button>
+
+      <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+        <Alert variant="filled" severity="warning">
+          This is a success alert — check it out!
+        </Alert>
+      </Snackbar>
+
       <Buscador BusquedaAPI={BusquedaAPI} />
       <CardUsuario DatosUsuario={datosUsuario} />
 

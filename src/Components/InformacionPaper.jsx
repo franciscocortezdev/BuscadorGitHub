@@ -5,7 +5,7 @@ export default function InformacionPaper({ DatosUsuario }) {
   const { public_repos, followers, following } = DatosUsuario
 
   return (
-    <Paper elevation={3} >
+    <Paper elevation={2} >
       <Stack
         direction='row'
         spacing={3}
