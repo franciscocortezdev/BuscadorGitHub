@@ -23,7 +23,7 @@ function App() {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'Not Found') {
-
+          handleClick()
           BusquedaAPI('octocat')
         } else {
 
