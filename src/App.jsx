@@ -59,11 +59,10 @@ function App() {
         alignItems: 'center',
         gap: '30px'
       }}>
-      <button onClick={handleClick}>Abrir modal</button>
 
       <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
         <Alert variant="filled" severity="warning">
-          This is a success alert — check it out!
+          Usuario no encontrado
         </Alert>
       </Snackbar>
 
