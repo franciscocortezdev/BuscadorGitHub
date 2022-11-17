@@ -1,11 +1,10 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
-import { Container } from '@mui/material'
+import { Container, Alert } from '@mui/material'
 import Buscador from './Components/Buscador'
 import CardUsuario from './Components/CardUsuario'
 import Snackbar from '@mui/material/Snackbar';
 
-import Alert from '@mui/material/Alert';
 
 
 function App() {
@@ -60,7 +59,7 @@ function App() {
         gap: '30px'
       }}>
 
-      <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
         <Alert variant="filled" severity="warning">
           Usuario no encontrado
         </Alert>
