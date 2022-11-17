@@ -1,20 +1,40 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
-import { Container, Alert } from '@mui/material'
+import { Container } from '@mui/material'
 import Buscador from './Components/Buscador'
 import CardUsuario from './Components/CardUsuario'
-import Snackbar from '@mui/material/Snackbar';
+import Alerta from './Components/Alert'
 
 
 
 function App() {
   const [datosUsuario, setDatosUsuario] = useState({})
-  const [open, setOpen] = useState(false)
-
+  const [alertStatus, setAlertStatus] = useState({
+    Status: false,
+    Message: '',
+    Type: ''
+  })
 
   useEffect(() => {
     BusquedaAPI('octocat')
   }, [])
+
+  const OpenAlert = () => {
+    setAlertStatus({
+      Status: true,
+      Message: 'Usuario no encontrado',
+      Type: 'warning'
+    })
+  }
+
+  const CloseAlert = (event, reason) => {
+    setAlertStatus({
+      ...alertStatus,
+      Status: false
+    })
+  }
+
+
 
 
   const BusquedaAPI = (query) => {
@@ -22,27 +42,16 @@ function App() {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'Not Found') {
-          handleClick()
           BusquedaAPI('octocat')
+          OpenAlert()
         } else {
-
           return setDatosUsuario(data)
         }
       })
   }
 
 
-  const handleClick = () => {
-    setOpen(true);
-  };
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
 
 
   return (
@@ -59,14 +68,15 @@ function App() {
         gap: '30px'
       }}>
 
-      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-        <Alert variant="filled" severity="warning">
-          Usuario no encontrado
-        </Alert>
-      </Snackbar>
-
       <Buscador BusquedaAPI={BusquedaAPI} />
       <CardUsuario DatosUsuario={datosUsuario} />
+
+      <Alerta
+        alertStatus={alertStatus.Status}
+        CloseAlert={CloseAlert}
+        Message={alertStatus.Message}
+        Type={alertStatus.Type}
+      />
 
     </Container>
   )

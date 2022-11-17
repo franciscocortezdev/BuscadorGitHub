@@ -4,7 +4,6 @@ import { Stack, Typography } from '@mui/material'
 export default function EncabezadoUsuario({ DatosUsuario }) {
   const { name, login, created_at } = DatosUsuario
 
-  console.log(created_at)
 
   return (
     <Stack>
