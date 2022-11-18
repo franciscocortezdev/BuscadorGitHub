@@ -3,7 +3,6 @@ import { Alert, Snackbar } from '@mui/material'
 
 export default function Alerta({ alertStatus, CloseAlert, Type, Message }) {
 
-
   return (
     <Snackbar
       open={alertStatus}
