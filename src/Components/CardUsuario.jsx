@@ -13,19 +13,19 @@ export default function CardUsuario({ DatosUsuario }) {
         container
         spacing={2}
       >
-        <Grid item xs={3}>
+        <Grid item container justifyContent={'center'} alignItems={'flex-start'} xs={12} sm={3} >
           <CardMedia
             component='img'
             alt={name}
             image={avatar_url}
-            sx={{ borderRadius: '50%', width: '100%' }}
+            sx={{ borderRadius: '50%', width: { xs: '50%', sm: '100%' } }}
           />
         </Grid>
-        <Grid item xs={9} >
+        <Grid item xs={12} sm={9} container flexDirection={'column'}>
           <Stack
             direction='column'
             spacing={1}
-            sx={{ marginLeft: '30px', marginRight: '30px' }}
+
           >
 
             <EncabezadoUsuario DatosUsuario={DatosUsuario} />
