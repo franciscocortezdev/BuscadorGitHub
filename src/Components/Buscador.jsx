@@ -18,8 +18,7 @@ export default function Buscador({ BusquedaAPI }) {
       component="form"
       onSubmit={realizarbusqueda}
       sx={{
-        marginTop: '30px',
-        width: '85%'
+        width: '100%'
       }}>
 
       <TextField

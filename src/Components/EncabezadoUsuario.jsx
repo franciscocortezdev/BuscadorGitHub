@@ -8,11 +8,15 @@ export default function EncabezadoUsuario({ DatosUsuario }) {
   return (
     <Stack>
       <Stack
-        direction="row"
-        justifyContent="space-between"
+        sx={{
+          direction: {
+            sx: 'column',
+          }
+        }}
+
         alignItems="center"
       >
-        <Typography variant='h4' >{name}</Typography>
+        <Typography variant='h4' textAlign={'center'}>{name}</Typography>
         <Typography variant='subtitle2'>{created_at === undefined ? '' : 'Desde: ' + created_at.slice(0, 10).split('-').join(' ')}</Typography>
 
       </Stack>

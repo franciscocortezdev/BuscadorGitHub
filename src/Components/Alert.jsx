@@ -3,6 +3,7 @@ import { Alert, Snackbar } from '@mui/material'
 
 export default function Alerta({ alertStatus, CloseAlert, Type, Message }) {
 
+
   return (
     <Snackbar
       open={alertStatus}
@@ -10,7 +11,7 @@ export default function Alerta({ alertStatus, CloseAlert, Type, Message }) {
       onClose={CloseAlert}
       anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
     >
-      <Alert variant="filled" severity={Type}>
+      <Alert variant="filled" severity={Boolean(Type) === false ? 'success' : Type}>
         {Message}
       </Alert>
     </Snackbar>

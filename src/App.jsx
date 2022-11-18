@@ -59,9 +59,11 @@ function App() {
       sx={{
         background: 'whitesmoke',
         width: '80vw',
-        height: '500px',
+        height: '100%',
         borderRadius: '16px',
         marginTop: '40px',
+        marginBottom: '40px',
+        padding: '20px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
