@@ -15,19 +15,19 @@ export default function InformacionLocalizacion({ DatosUsuario }) {
       container
       spacing={3}
     >
-      <Grid item xs={12}>
+      <Grid item xs={12} md={6}>
         <Stack direction={'row'} spacing={2}>
           <LocationOnIcon />
           <Typography>{location ? location : 'No disponible'}</Typography>
         </Stack>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} md={6}>
         <Stack direction={'row'} spacing={2}>
           <TwitterIcon />
           <Typography>{twitter_username ? '@' + twitter_username : 'No disponible'}</Typography>
         </Stack>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} md={6}>
         <Stack direction={'row'} spacing={2}>
           <LanguageIcon />
           {
@@ -40,7 +40,7 @@ export default function InformacionLocalizacion({ DatosUsuario }) {
 
         </Stack>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} md={6}>
         <Stack direction={'row'} spacing={2}>
           <BusinessIcon />
           <Typography>{company ? company : 'No disponible'}</Typography>
