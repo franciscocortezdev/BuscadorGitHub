@@ -9,11 +9,13 @@ export default function EncabezadoUsuario({ DatosUsuario }) {
     <Stack>
       <Stack
         sx={{
-          direction: {
+          flexDirection: {
             sx: 'column',
+            md: 'row'
           }
-        }}
 
+        }}
+        justifyContent="space-between"
         alignItems="center"
       >
         <Typography variant='h4' textAlign={'center'}>{name}</Typography>
