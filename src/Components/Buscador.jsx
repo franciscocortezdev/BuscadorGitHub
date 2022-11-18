@@ -17,12 +17,9 @@ export default function Buscador({ BusquedaAPI }) {
       direction='row'
       component="form"
       onSubmit={realizarbusqueda}
-      sx={{
-        width: {
-          sx: '100%',
-          md: '80%'
-        }
-      }}>
+      width={{ xs: '100%', md: '80%' }}
+
+    >
 
       <TextField
         value={inputBusqueda}

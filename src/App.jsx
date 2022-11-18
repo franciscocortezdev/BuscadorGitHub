@@ -60,6 +60,7 @@ function App() {
         background: 'whitesmoke',
         width: '80vw',
         height: '100%',
+        minHeight: '500px',
         borderRadius: '16px',
         marginTop: '40px',
         marginBottom: '40px',
