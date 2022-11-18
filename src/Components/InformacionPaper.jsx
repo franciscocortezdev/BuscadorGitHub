@@ -7,11 +7,7 @@ export default function InformacionPaper({ DatosUsuario }) {
   return (
     <Paper elevation={2} >
       <Stack
-        sx={{
-          direction: {
-            sx: 'column',
-          }
-        }}
+        direction={{ sx: 'column', md: 'row' }}
         spacing={3}
         justifyContent='space-evenly'
         margin={3}
