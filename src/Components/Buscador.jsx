@@ -18,7 +18,6 @@ export default function Buscador({ BusquedaAPI }) {
       component="form"
       onSubmit={realizarbusqueda}
       width={{ xs: '100%', md: '80%' }}
-
     >
 
       <TextField
@@ -37,6 +36,26 @@ export default function Buscador({ BusquedaAPI }) {
         }}
         autoComplete='off'
         size="small"
+        sx={{
+          '& label.Mui-focused': {
+            color: 'green',
+          },
+          '& .MuiInput-underline:after': {
+            borderBottomColor: 'green',
+          },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: 'gray',
+            },
+            '&:hover fieldset': {
+              borderColor: 'green',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: 'green',
+            },
+          },
+        }}
+
       />
 
     </Stack>
