@@ -1,10 +1,14 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
-import { Container, CssBaseline } from '@mui/material'
+import { Container, CssBaseline, IconButton } from '@mui/material'
 import Buscador from './Components/Buscador'
 import CardUsuario from './Components/CardUsuario'
 import Alerta from './Components/Alert'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import { Stack } from '@mui/system'
 
 
 function App() {
@@ -14,6 +18,8 @@ function App() {
     Message: '',
     Type: ''
   })
+
+  const [modeTheme, setModeTheme] = useState(false)
 
 
   useEffect(() => {
@@ -55,16 +61,7 @@ function App() {
 
   const theme = createTheme({
     palette: {
-      type: 'dark',
-      primary: {
-        main: '#c8108a',
-      },
-      secondary: {
-        main: '#f50057',
-      },
-      default: {
-        main: '#000000',
-      },
+      mode: modeTheme ? 'dark' : 'light'
     },
   })
 
@@ -72,7 +69,6 @@ function App() {
 
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
 
       <Container
         sx={{
@@ -88,9 +84,25 @@ function App() {
           flexDirection: 'column',
           alignItems: 'center',
           gap: '30px'
-        }}>
+        }}
+      >
+        <Stack direction='row'>
+          <IconButton variant="contained" onClick={() => { setModeTheme(!modeTheme) }}>
+            {
+              modeTheme
+                ? <LightModeOutlinedIcon />
+                : <LightModeIcon />
+            }
+          </IconButton>
 
-        <Buscador BusquedaAPI={BusquedaAPI} />
+
+
+          <Buscador BusquedaAPI={BusquedaAPI} />
+
+        </Stack>
+
+
+
         <CardUsuario DatosUsuario={datosUsuario} />
 
         <Alerta
