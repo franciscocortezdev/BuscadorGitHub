@@ -1,14 +1,13 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
-import { Container, CssBaseline, IconButton } from '@mui/material'
+import { Container, CssBaseline } from '@mui/material'
 import Buscador from './Components/Buscador'
 import CardUsuario from './Components/CardUsuario'
 import Alerta from './Components/Alert'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import { Stack } from '@mui/system'
+
 
 
 function App() {
@@ -18,10 +17,9 @@ function App() {
     Message: '',
     Type: ''
   })
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-  const [modeTheme, setModeTheme] = useState(false)
-
-
+  console.log(prefersDarkMode)
   useEffect(() => {
     BusquedaAPI('octocat')
   }, [])
@@ -61,8 +59,10 @@ function App() {
 
   const theme = createTheme({
     palette: {
-      mode: modeTheme ? 'dark' : 'light'
-    },
+      mode: prefersDarkMode ? 'dark' : 'light',
+
+    }
+
   })
 
   return (
@@ -71,6 +71,7 @@ function App() {
       <CssBaseline />
 
       <Container
+
         sx={{
 
           width: '80vw',
@@ -86,22 +87,8 @@ function App() {
           gap: '30px'
         }}
       >
-        <Stack direction='row'>
-          <IconButton variant="contained" onClick={() => { setModeTheme(!modeTheme) }}>
-            {
-              modeTheme
-                ? <LightModeOutlinedIcon />
-                : <LightModeIcon />
-            }
-          </IconButton>
 
-
-
-          <Buscador BusquedaAPI={BusquedaAPI} />
-
-        </Stack>
-
-
+        <Buscador BusquedaAPI={BusquedaAPI} />
 
         <CardUsuario DatosUsuario={datosUsuario} />
 

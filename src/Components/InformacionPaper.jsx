@@ -1,8 +1,12 @@
 import React from 'react'
 import { Paper, Stack, Typography } from "@mui/material";
+import { red } from '@mui/material/colors';
+
 
 export default function InformacionPaper({ DatosUsuario }) {
   const { public_repos, followers, following } = DatosUsuario
+
+
 
   return (
     <Paper elevation={2} >
