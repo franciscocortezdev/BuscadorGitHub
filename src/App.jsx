@@ -1,10 +1,10 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
-import { Container } from '@mui/material'
+import { Container, CssBaseline } from '@mui/material'
 import Buscador from './Components/Buscador'
 import CardUsuario from './Components/CardUsuario'
 import Alerta from './Components/Alert'
-
+import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 function App() {
@@ -14,6 +14,10 @@ function App() {
     Message: '',
     Type: ''
   })
+
+  const theme = useTheme();
+
+  console.log(theme)
 
   useEffect(() => {
     BusquedaAPI('octocat')
@@ -57,7 +61,7 @@ function App() {
   return (
     <Container
       sx={{
-        background: 'whitesmoke',
+
         width: '80vw',
         height: '100%',
         minHeight: '500px',
