@@ -4,7 +4,7 @@ import { Container, CssBaseline } from '@mui/material'
 import Buscador from './Components/Buscador'
 import CardUsuario from './Components/CardUsuario'
 import Alerta from './Components/Alert'
-import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 function App() {
@@ -15,9 +15,6 @@ function App() {
     Type: ''
   })
 
-  const theme = useTheme();
-
-  console.log(theme)
 
   useEffect(() => {
     BusquedaAPI('octocat')
@@ -56,36 +53,55 @@ function App() {
 
 
 
-
+  const theme = createTheme({
+    palette: {
+      type: 'dark',
+      primary: {
+        main: '#c8108a',
+      },
+      secondary: {
+        main: '#f50057',
+      },
+      default: {
+        main: '#000000',
+      },
+    },
+  })
 
   return (
-    <Container
-      sx={{
 
-        width: '80vw',
-        height: '100%',
-        minHeight: '500px',
-        borderRadius: '16px',
-        marginTop: '40px',
-        marginBottom: '40px',
-        padding: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '30px'
-      }}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
 
-      <Buscador BusquedaAPI={BusquedaAPI} />
-      <CardUsuario DatosUsuario={datosUsuario} />
 
-      <Alerta
-        alertStatus={alertStatus.Status}
-        CloseAlert={CloseAlert}
-        Message={alertStatus.Message}
-        Type={alertStatus.Type}
-      />
+      <Container
+        sx={{
 
-    </Container>
+          width: '80vw',
+          height: '100%',
+          minHeight: '500px',
+          borderRadius: '16px',
+          marginTop: '40px',
+          marginBottom: '40px',
+          padding: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '30px'
+        }}>
+
+        <Buscador BusquedaAPI={BusquedaAPI} />
+        <CardUsuario DatosUsuario={datosUsuario} />
+
+        <Alerta
+          alertStatus={alertStatus.Status}
+          CloseAlert={CloseAlert}
+          Message={alertStatus.Message}
+          Type={alertStatus.Type}
+        />
+
+      </Container>
+    </ThemeProvider>
   )
 }
 
